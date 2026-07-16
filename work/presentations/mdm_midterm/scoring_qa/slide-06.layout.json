@@ -1,0 +1,983 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/xprkm0",
+    "id": "xprkm0",
+    "slide": 6,
+    "layoutId": "22441fcf-01ef-4bef-969e-62202fc1db12",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "a4237f9e-1bdc-4cb7-ad81-a0158db9d0f9",
+    "masterLayoutName": "Master",
+    "backgroundColor": "#F5FAFC",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "bg1": "#FFFFFF",
+      "bg2": "#000000",
+      "tx1": "#1F1F1F",
+      "tx2": "#FFFFFF",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    },
+    "typefaces": [
+      "+mn-lt"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "22441fcf-01ef-4bef-969e-62202fc1db12",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "a4237f9e-1bdc-4cb7-ad81-a0158db9d0f9",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "a4237f9e-1bdc-4cb7-ad81-a0158db9d0f9",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/gn29gr2p",
+      "id": "1",
+      "bbox": [
+        64,
+        36,
+        560,
+        26
+      ],
+      "geometry": "rect",
+      "text": "05  Baseline 完成情况",
+      "textPreview": "05  Baseline 完成情况",
+      "resolvedFontSize": 14,
+      "resolvedTextStyle": {
+        "fontSize": 14,
+        "typeface": "+mn-lt",
+        "color": "#06A7C7",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "05  Baseline 完成情况"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "05  Baseline 完成情况",
+          "resolvedTextStyle": {
+            "fontSize": 14,
+            "color": "#06A7C7",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "05  Baseline 完成情况",
+              "fontSize": 14,
+              "color": "#06A7C7",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/n29gr2p8",
+      "id": "2",
+      "bbox": [
+        64,
+        72,
+        1000,
+        56
+      ],
+      "geometry": "rect",
+      "text": "已完成可训练、可加载、可在线评分的机器学习匹配基线",
+      "textPreview": "已完成可训练、可加载、可在线评分的机器学习匹配基线",
+      "resolvedFontSize": 35,
+      "resolvedTextStyle": {
+        "fontSize": 35,
+        "typeface": "+mn-lt",
+        "color": "#102033",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "已完成可训练、可加载、可在线评分的机器学习匹配基线"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "已完成可训练、可加载、可在线评分的机器学习匹配基线",
+          "resolvedTextStyle": {
+            "fontSize": 35,
+            "color": "#102033",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "已完成可训练、可加载、可在线评分的机器学习匹配基线",
+              "fontSize": 35,
+              "color": "#102033",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/yhgn29gr",
+      "id": "3",
+      "bbox": [
+        64,
+        142,
+        92,
+        4
+      ],
+      "geometry": "rect",
+      "fillColor": "#06A7C7",
+      "lineColor": "#06A7C7",
+      "lineWidth": 0
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/5wjudg7a",
+      "id": "4",
+      "bbox": [
+        64,
+        160,
+        1020,
+        42
+      ],
+      "geometry": "rect",
+      "text": "Baseline 将候选记录对建模为二分类任务，输入结构化相似度特征，输出同一实体置信度。",
+      "textPreview": "Baseline 将候选记录对建模为二分类任务，输入结构化相似度特征，输出同一实体置信度。",
+      "resolvedFontSize": 17,
+      "resolvedTextStyle": {
+        "fontSize": 17,
+        "typeface": "+mn-lt",
+        "color": "#5E7188",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Baseline 将候选记录对建模为二分类任务，输入结构化相似度特征，输出同一实体置信度。"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Baseline 将候选记录对建模为二分类任务，输入结构化相似度特征，输出同一实体置信度。",
+          "resolvedTextStyle": {
+            "fontSize": 17,
+            "color": "#5E7188",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Baseline 将候选记录对建模为二分类任务，输入结构化相似度特征，输出同一实体置信度。",
+              "fontSize": 17,
+              "color": "#5E7188",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/gbq1oryt",
+      "id": "5",
+      "bbox": [
+        78,
+        248,
+        326,
+        196
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#D5E6EE",
+      "lineWidth": 1
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/nuxc3ylc",
+      "id": "6",
+      "bbox": [
+        102,
+        268,
+        278,
+        28
+      ],
+      "geometry": "rect",
+      "text": "XGBoost",
+      "textPreview": "XGBoost",
+      "resolvedFontSize": 19,
+      "resolvedTextStyle": {
+        "fontSize": 19,
+        "typeface": "+mn-lt",
+        "color": "#1456A0",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "XGBoost"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "XGBoost",
+          "resolvedTextStyle": {
+            "fontSize": 19,
+            "color": "#1456A0",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "XGBoost",
+              "fontSize": 19,
+              "color": "#1456A0",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/y90je9cv",
+      "id": "7",
+      "bbox": [
+        102,
+        308,
+        278,
+        124
+      ],
+      "geometry": "rect",
+      "text": "180 棵树，max_depth=4，learning_rate=0.04，用于捕捉文本、品牌、价格特征之间的非线性交互。",
+      "textPreview": "180 棵树，max_depth=4，learning_rate=0.04，用于捕捉文本、品牌、价格特征之间的非线性交互。",
+      "resolvedFontSize": 15.51,
+      "resolvedTextStyle": {
+        "fontSize": 15.51,
+        "typeface": "+mn-lt",
+        "color": "#5E7188",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 4,
+        "lines": [
+          {
+            "index": 1,
+            "text": "180"
+          },
+          {
+            "index": 2,
+            "text": "棵树，max_depth=4，learning_rate=0."
+          },
+          {
+            "index": 3,
+            "text": "04，用于捕捉文本、品牌、价格特征"
+          },
+          {
+            "index": 4,
+            "text": "之间的非线性交互。"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "180 棵树，max_depth=4，learning_rate=0.04，用于捕捉文本、品牌、价格特征之间的非线性交互。",
+          "resolvedTextStyle": {
+            "fontSize": 15.51,
+            "color": "#5E7188",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "180 棵树，max_depth=4，learning_rate=0.04，用于捕捉文本、品牌、价格特征之间的非线性交互。",
+              "fontSize": 15.51,
+              "color": "#5E7188",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/5sneloj2",
+      "id": "8",
+      "bbox": [
+        477,
+        248,
+        326,
+        196
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#D5E6EE",
+      "lineWidth": 1
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/cbulwval",
+      "id": "9",
+      "bbox": [
+        501,
+        268,
+        278,
+        28
+      ],
+      "geometry": "rect",
+      "text": "MLP",
+      "textPreview": "MLP",
+      "resolvedFontSize": 19,
+      "resolvedTextStyle": {
+        "fontSize": 19,
+        "typeface": "+mn-lt",
+        "color": "#0E8F86",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "MLP"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "MLP",
+          "resolvedTextStyle": {
+            "fontSize": 19,
+            "color": "#0E8F86",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "MLP",
+              "fontSize": 19,
+              "color": "#0E8F86",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/e9cvixcz",
+      "id": "10",
+      "bbox": [
+        501,
+        308,
+        278,
+        124
+      ],
+      "geometry": "rect",
+      "text": "StandardScaler + 隐层 (24, 12)，solver=lbfgs，提供另一种非线性决策边界。",
+      "textPreview": "StandardScaler + 隐层 (24, 12)，solver=lbfgs，提供另一种非线性决策边界。",
+      "resolvedFontSize": 15.51,
+      "resolvedTextStyle": {
+        "fontSize": 15.51,
+        "typeface": "+mn-lt",
+        "color": "#5E7188",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 3,
+        "lines": [
+          {
+            "index": 1,
+            "text": "StandardScaler + 隐层 (24,"
+          },
+          {
+            "index": 2,
+            "text": "12)，solver=lbfgs，提供另一种非线性"
+          },
+          {
+            "index": 3,
+            "text": "决策边界。"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "StandardScaler + 隐层 (24, 12)，solver=lbfgs，提供另一种非线性决策边界。",
+          "resolvedTextStyle": {
+            "fontSize": 15.51,
+            "color": "#5E7188",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "StandardScaler + 隐层 (24, 12)，solver=lbfgs，提供另一种非线性决策边界。",
+              "fontSize": 15.51,
+              "color": "#5E7188",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 11,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/3q5o7qpg",
+      "id": "11",
+      "bbox": [
+        876,
+        248,
+        326,
+        196
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#D5E6EE",
+      "lineWidth": 1
+    },
+    {
+      "order": 12,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/wb2hwfyx",
+      "id": "12",
+      "bbox": [
+        900,
+        268,
+        278,
+        28
+      ],
+      "geometry": "rect",
+      "text": "Lexical Baseline",
+      "textPreview": "Lexical Baseline",
+      "resolvedFontSize": 19,
+      "resolvedTextStyle": {
+        "fontSize": 19,
+        "typeface": "+mn-lt",
+        "color": "#F59E0B",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Lexical Baseline"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Lexical Baseline",
+          "resolvedTextStyle": {
+            "fontSize": 19,
+            "color": "#F59E0B",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Lexical Baseline",
+              "fontSize": 19,
+              "color": "#F59E0B",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 13,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/lwval87e",
+      "id": "13",
+      "bbox": [
+        900,
+        308,
+        278,
+        124
+      ],
+      "geometry": "rect",
+      "text": "字符/词级 TF-IDF 余弦 + Token Jaccard，作为稳定兜底和可解释的词法相似度信号。",
+      "textPreview": "字符/词级 TF-IDF 余弦 + Token Jaccard，作为稳定兜底和可解释的词法相似度信号。",
+      "resolvedFontSize": 15.51,
+      "resolvedTextStyle": {
+        "fontSize": 15.51,
+        "typeface": "+mn-lt",
+        "color": "#5E7188",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 3,
+        "lines": [
+          {
+            "index": 1,
+            "text": "字符/词级 TF-IDF 余弦 + Token"
+          },
+          {
+            "index": 2,
+            "text": "Jaccard，作为稳定兜底和可解释的词"
+          },
+          {
+            "index": 3,
+            "text": "法相似度信号。"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "字符/词级 TF-IDF 余弦 + Token Jaccard，作为稳定兜底和可解释的词法相似度信号。",
+          "resolvedTextStyle": {
+            "fontSize": 15.51,
+            "color": "#5E7188",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "字符/词级 TF-IDF 余弦 + Token Jaccard，作为稳定兜底和可解释的词法相似度信号。",
+              "fontSize": 15.51,
+              "color": "#5E7188",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 14,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ex0nuxc3",
+      "id": "14",
+      "bbox": [
+        140,
+        520,
+        1000,
+        74
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#E8F4F8",
+      "lineColor": "#CFE3EB",
+      "lineWidth": 1
+    },
+    {
+      "order": 15,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/3itgfmlk",
+      "id": "15",
+      "bbox": [
+        172,
+        542,
+        120,
+        28
+      ],
+      "geometry": "rect",
+      "text": "完成产物",
+      "textPreview": "完成产物",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "fontSize": 20,
+        "typeface": "+mn-lt",
+        "color": "#1456A0",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "完成产物"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "完成产物",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "color": "#1456A0",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "完成产物",
+              "fontSize": 20,
+              "color": "#1456A0",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 16,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/w3m94fu1",
+      "id": "16",
+      "bbox": [
+        302,
+        540,
+        780,
+        32
+      ],
+      "geometry": "rect",
+      "text": "artifacts/mdm_matcher.joblib 保存特征构造器、XGBoost、MLP、特征列和验证指标；FastAPI 服务启动后直接加载用于在线评分。",
+      "textPreview": "artifacts/mdm_matcher.joblib 保存特征构造器、XGBoost、MLP、特征列和验证指标；FastAPI 服务启动后直接加载用于在线评分。",
+      "resolvedFontSize": 17.51,
+      "resolvedTextStyle": {
+        "fontSize": 17.51,
+        "typeface": "+mn-lt",
+        "color": "#102033",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "artifacts/mdm_matcher.joblib 保存特征构造器、XGBoost、MLP、特征列和验证指标；FastAPI"
+          },
+          {
+            "index": 2,
+            "text": "服务启动后直接加载用于在线评分。"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "artifacts/mdm_matcher.joblib 保存特征构造器、XGBoost、MLP、特征列和验证指标；FastAPI 服务启动后直接加载用于在线评分。",
+          "resolvedTextStyle": {
+            "fontSize": 17.51,
+            "color": "#102033",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "artifacts/mdm_matcher.joblib 保存特征构造器、XGBoost、MLP、特征列和验证指标；FastAPI 服务启动后直接加载用于在线评分。",
+              "fontSize": 17.51,
+              "color": "#102033",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 17,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/loj2t83i",
+      "id": "17",
+      "bbox": [
+        64,
+        674,
+        690,
+        24
+      ],
+      "geometry": "rect",
+      "text": "基于 Dify 的客户/商品主数据自动化匹配项目",
+      "textPreview": "基于 Dify 的客户/商品主数据自动化匹配项目",
+      "resolvedFontSize": 13,
+      "resolvedTextStyle": {
+        "fontSize": 13,
+        "typeface": "+mn-lt",
+        "color": "#71859A",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "基于 Dify 的客户/商品主数据自动化匹配项目"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "基于 Dify 的客户/商品主数据自动化匹配项目",
+          "resolvedTextStyle": {
+            "fontSize": 13,
+            "color": "#71859A",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "基于 Dify 的客户/商品主数据自动化匹配项目",
+              "fontSize": 13,
+              "color": "#71859A",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 18,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/at47y1kr",
+      "id": "18",
+      "bbox": [
+        1162,
+        672,
+        56,
+        26
+      ],
+      "geometry": "rect",
+      "text": "06",
+      "textPreview": "06",
+      "resolvedFontSize": 15,
+      "resolvedTextStyle": {
+        "fontSize": 15,
+        "typeface": "+mn-lt",
+        "color": "#1456A0",
+        "bold": true,
+        "alignment": "right",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "06"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "06",
+          "resolvedTextStyle": {
+            "fontSize": 15,
+            "color": "#1456A0",
+            "bold": true,
+            "alignment": "right"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "06",
+              "fontSize": 15,
+              "color": "#1456A0",
+              "bold": true,
+              "alignment": "right"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    }
+  ],
+  "composeRuns": []
+}

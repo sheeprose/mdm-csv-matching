@@ -1,0 +1,54 @@
+{
+  "inputs": {
+    "reference_path": "C:\\Users\\86153\\Desktop\\a\\structured_amazon_google\\master.csv",
+    "sqlite_path": "C:\\Users\\86153\\Desktop\\amazon.sqlite3"
+  },
+  "counts": {
+    "reference_master_rows": 3595,
+    "reference_clusters": 3595,
+    "predicted_clusters_from_source_links": 3508,
+    "reference_A_source_count": 1363,
+    "reference_B_source_count": 3226,
+    "predicted_A_source_count": 1363,
+    "predicted_B_source_count": 3226,
+    "golden_records": 3508,
+    "action_log": 1368,
+    "review_tasks": 0,
+    "entities": 3508,
+    "entity_aliases": 4419,
+    "source_record_links": 4589,
+    "match_decisions": 3876,
+    "duplicate_source_ref_count_in_links": 0
+  },
+  "source_coverage": {
+    "A_covered": 1363,
+    "A_missing": 0,
+    "A_extra": 0,
+    "A_recall": 1.0,
+    "B_covered": 3226,
+    "B_missing": 0,
+    "B_extra": 0,
+    "B_recall": 1.0
+  },
+  "cluster_exact_match": {
+    "exact_match_count": 2507,
+    "missing_reference_cluster_count": 1088,
+    "extra_predicted_cluster_count": 1001,
+    "precision": 0.714652,
+    "recall": 0.697357
+  },
+  "cross_source_pair_linkage": {
+    "tp": 690,
+    "fp": 234,
+    "fn": 477,
+    "precision": 0.746753,
+    "recall": 0.59126,
+    "f1": 0.659971
+  },
+  "canonical_title_on_exact_clusters": {
+    "compared": 2507,
+    "exact_title_matches": 2069,
+    "exact_title_match_rate": 0.825289
+  },
+  "duplicate_source_links": []
+}

@@ -1,0 +1,1355 @@
+app:
+  description: CSV 主数据匹配工作流。后端负责上传校验、预处理、粗筛、自动实体聚类、无冲突实体写库和冲突簇保存；Dify 负责循环拉取冲突实体簇，结合知识库和大模型完成实体分组后写入数据库。
+  icon: "\U0001F5C3"
+  icon_background: "#E0F2FE"
+  mode: workflow
+  name: MDM CSV 黄金记录匹配
+  use_icon_as_answer_icon: false
+dependencies: []
+kind: app
+version: 0.3.1
+workflow:
+  conversation_variables: []
+  environment_variables:
+    - description: 外部 MDM 匹配 API 的基础地址。
+      id: env_mdm_api_base
+      name: MDM_API_BASE
+      selector:
+        - env
+        - MDM_API_BASE
+      value: http://host.docker.internal:8000
+      value_type: string
+  features:
+    file_upload:
+      allowed_file_extensions:
+        - .csv
+      allowed_file_types:
+        - document
+      allowed_file_upload_methods:
+        - local_file
+        - remote_url
+      enabled: true
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 100
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 3
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+          - local_file
+          - remote_url
+      number_limits: 3
+    opening_statement: ""
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ""
+      voice: ""
+  graph:
+    edges:
+      - data:
+          isInIteration: false
+          isInLoop: false
+          sourceType: start
+          targetType: http-request
+        id: start-to-strict-schema
+        source: start
+        sourceHandle: source
+        target: strict_schema_match
+        targetHandle: target
+        type: custom
+        zIndex: 0
+      - data:
+          isInIteration: false
+          isInLoop: false
+          sourceType: http-request
+          targetType: if-else
+        id: strict-schema-to-branch
+        source: strict_schema_match
+        sourceHandle: source
+        target: strict_schema_branch
+        targetHandle: target
+        type: custom
+        zIndex: 0
+      - data:
+          isInIteration: false
+          isInLoop: false
+          sourceType: if-else
+          targetType: http-request
+        id: strict-schema-hit-to-ingest
+        source: strict_schema_branch
+        sourceHandle: exact_schema_matched
+        target: ingest_and_match
+        targetHandle: target
+        type: custom
+        zIndex: 0
+      - data:
+          isInIteration: false
+          isInLoop: false
+          sourceType: if-else
+          targetType: http-request
+        id: strict-schema-bypass-to-ingest
+        source: strict_schema_branch
+        sourceHandle: strict_schema_bypass
+        target: ingest_and_match
+        targetHandle: target
+        type: custom
+        zIndex: 0
+      - data:
+          isInIteration: false
+          isInLoop: false
+          sourceType: if-else
+          targetType: llm
+        id: strict-schema-miss-to-analyze
+        source: strict_schema_branch
+        sourceHandle: "false"
+        target: analyze_schema
+        targetHandle: target
+        type: custom
+        zIndex: 0
+      - data:
+          isInIteration: false
+          isInLoop: false
+          sourceType: llm
+          targetType: if-else
+        id: analyze-schema-to-branch
+        source: analyze_schema
+        sourceHandle: source
+        target: analyze_schema_branch
+        targetHandle: target
+        type: custom
+        zIndex: 0
+      - data:
+          isInIteration: false
+          isInLoop: false
+          sourceType: if-else
+          targetType: http-request
+        id: analyze-schema-related-to-ingest
+        source: analyze_schema_branch
+        sourceHandle: schema_related
+        target: ingest_and_match
+        targetHandle: target
+        type: custom
+        zIndex: 0
+      - data:
+          isInIteration: false
+          isInLoop: false
+          sourceType: if-else
+          targetType: end
+        id: analyze-schema-mismatch-to-end
+        source: analyze_schema_branch
+        sourceHandle: "false"
+        target: schema_gate_mismatch_end
+        targetHandle: target
+        type: custom
+        zIndex: 0
+      - data:
+          isInIteration: false
+          isInLoop: false
+          sourceType: http-request
+          targetType: if-else
+        id: ingest-to-llm-branch
+        source: ingest_and_match
+        sourceHandle: source
+        target: need_llm_branch
+        targetHandle: target
+        type: custom
+        zIndex: 0
+      - data:
+          isInIteration: false
+          isInLoop: false
+          sourceType: if-else
+          targetType: loop
+        id: branch-llm-to-loop
+        source: need_llm_branch
+        sourceHandle: llm_required
+        target: llm_batch_loop
+        targetHandle: target
+        type: custom
+        zIndex: 0
+      - data:
+          isInIteration: false
+          isInLoop: false
+          sourceType: if-else
+          targetType: end
+        id: branch-schema-mismatch-to-end
+        source: need_llm_branch
+        sourceHandle: schema_mismatch
+        target: schema_mismatch_end
+        targetHandle: target
+        type: custom
+        zIndex: 0
+      - data:
+          isInIteration: false
+          isInLoop: false
+          sourceType: if-else
+          targetType: end
+        id: branch-reupload-required-to-end
+        source: need_llm_branch
+        sourceHandle: reupload_required
+        target: schema_mismatch_end
+        targetHandle: target
+        type: custom
+        zIndex: 0
+      - data:
+          isInIteration: false
+          isInLoop: false
+          sourceType: if-else
+          targetType: http-request
+        id: branch-no-llm-to-end
+        source: need_llm_branch
+        sourceHandle: "false"
+        target: finalize_match_run
+        targetHandle: target
+        type: custom
+        zIndex: 0
+      - data:
+          isInIteration: false
+          isInLoop: false
+          sourceType: loop
+          targetType: http-request
+        id: loop-to-end
+        source: llm_batch_loop
+        sourceHandle: source
+        target: finalize_match_run
+        targetHandle: target
+        type: custom
+        zIndex: 0
+      - data:
+          isInIteration: false
+          isInLoop: false
+          sourceType: http-request
+          targetType: end
+        id: finalize-to-end
+        source: finalize_match_run
+        sourceHandle: source
+        target: workflow_end
+        targetHandle: target
+        type: custom
+        zIndex: 0
+      - data:
+          isInIteration: false
+          isInLoop: true
+          loop_id: llm_batch_loop
+          sourceType: loop-start
+          targetType: http-request
+        id: loop-start-to-candidate-batch
+        source: llm_batch_loop_start
+        sourceHandle: source
+        target: get_llm_batch
+        targetHandle: target
+        type: custom
+        zIndex: 1002
+      - data:
+          isInIteration: false
+          isInLoop: true
+          loop_id: llm_batch_loop
+          sourceType: http-request
+          targetType: knowledge-retrieval
+        id: candidate-batch-to-knowledge
+        source: get_llm_batch
+        sourceHandle: source
+        target: retrieve_mdm_knowledge
+        targetHandle: target
+        type: custom
+        zIndex: 1002
+      - data:
+          isInIteration: false
+          isInLoop: true
+          loop_id: llm_batch_loop
+          sourceType: knowledge-retrieval
+          targetType: llm
+        id: knowledge-to-llm
+        source: retrieve_mdm_knowledge
+        sourceHandle: source
+        target: llm_batch_review
+        targetHandle: target
+        type: custom
+        zIndex: 1002
+      - data:
+          isInIteration: false
+          isInLoop: true
+          loop_id: llm_batch_loop
+          sourceType: llm
+          targetType: code
+        id: llm-to-prepare-result
+        source: llm_batch_review
+        sourceHandle: source
+        target: prepare_llm_result
+        targetHandle: target
+        type: custom
+        zIndex: 1002
+      - data:
+          isInIteration: false
+          isInLoop: true
+          loop_id: llm_batch_loop
+          sourceType: code
+          targetType: http-request
+        id: prepare-result-to-commit
+        source: prepare_llm_result
+        sourceHandle: source
+        target: commit_llm_batch
+        targetHandle: target
+        type: custom
+        zIndex: 1002
+      - data:
+          isInIteration: false
+          isInLoop: true
+          loop_id: llm_batch_loop
+          sourceType: http-request
+          targetType: code
+        id: commit-to-parse-state
+        source: commit_llm_batch
+        sourceHandle: source
+        target: parse_loop_state
+        targetHandle: target
+        type: custom
+        zIndex: 1002
+      - data:
+          isInIteration: false
+          isInLoop: true
+          loop_id: llm_batch_loop
+          sourceType: code
+          targetType: assigner
+        id: parse-state-to-assign
+        source: parse_loop_state
+        sourceHandle: source
+        target: update_loop_state
+        targetHandle: target
+        type: custom
+        zIndex: 1002
+    nodes:
+      - data:
+          desc: 主数据库为空时上传 tableA 和 tableB；主数据库已有数据时只上传 incoming_csv。匹配阈值由后端模型配置统一控制，冲突簇会交给大模型分组。
+          selected: false
+          title: 开始
+          type: start
+          variables:
+            - label: tableA CSV 本地路径或 URL
+              max_length: 512
+              options: []
+              required: false
+              type: text-input
+              variable: table_a_path
+            - label: tableB CSV 本地路径或 URL
+              max_length: 512
+              options: []
+              required: false
+              type: text-input
+              variable: table_b_path
+            - label: 待匹配 CSV 本地路径或 URL
+              max_length: 512
+              options: []
+              required: false
+              type: text-input
+              variable: incoming_csv_path
+        height: 126
+        id: start
+        position:
+          x: 80
+          y: 280
+        positionAbsolute:
+          x: 80
+          y: 280
+        selected: false
+        sourcePosition: right
+        targetPosition: left
+        type: custom
+        width: 244
+      - data:
+          authorization:
+            config: null
+            type: no-auth
+          body:
+            data:
+              - id: json-body-strict-schema-match
+                type: text
+                value: |-
+                  {
+                    "table_a_path": "{{#start.table_a_path#}}",
+                    "table_b_path": "{{#start.table_b_path#}}",
+                    "incoming_csv_path": "{{#start.incoming_csv_path#}}"
+                  }
+            type: json
+          desc: Strictly compare Table A and Table B column headers. Same order, same characters, same case means schema matched and can skip LLM schema judgment.
+          headers: Content-Type:application/json
+          method: post
+          params: ""
+          selected: false
+          timeout:
+            connect: 10
+            max_connect_timeout: 0
+            max_read_timeout: 0
+            max_write_timeout: 0
+            read: 60
+            write: 20
+          title: 严格列标题命中
+          type: http-request
+          url: "{{#env.MDM_API_BASE#}}/strict-schema-match"
+        height: 126
+        id: strict_schema_match
+        position:
+          x: 380
+          y: 280
+        positionAbsolute:
+          x: 380
+          y: 280
+        selected: false
+        sourcePosition: right
+        targetPosition: left
+        type: custom
+        width: 244
+      - data:
+          cases:
+            - case_id: exact_schema_matched
+              conditions:
+                - comparison_operator: contains
+                  id: exact-schema-condition
+                  value: strict_schema_matched
+                  varType: string
+                  variable_selector:
+                    - strict_schema_match
+                    - body
+              id: exact_schema_matched
+              logical_operator: and
+            - case_id: strict_schema_bypass
+              conditions:
+                - comparison_operator: contains
+                  id: strict-schema-bypass-condition
+                  value: strict_schema_bypass
+                  varType: string
+                  variable_selector:
+                    - strict_schema_match
+                    - body
+              id: strict_schema_bypass
+              logical_operator: and
+          desc: Exact column schema match goes directly to ingestion. Missed strict match goes to schema analysis.
+          selected: false
+          title: 是否严格命中
+          type: if-else
+        height: 152
+        id: strict_schema_branch
+        position:
+          x: 680
+          y: 280
+        positionAbsolute:
+          x: 680
+          y: 280
+        selected: false
+        sourcePosition: right
+        targetPosition: left
+        type: custom
+        width: 244
+      - data:
+          context:
+            enabled: false
+            variable_selector: []
+          desc: Strict schema match failed. Ask the LLM to judge whether the two CSV schemas still describe the same entity type before continuing to ingestion.
+          model:
+            completion_params:
+              max_tokens: 2048
+              temperature: 0
+            mode: chat
+            name: deepseek-chat
+            provider: deepseek
+          prompt_template:
+            - id: system-prompt
+              role: system
+              text: |-
+                You are a strict schema gatekeeper for an MDM/entity matching workflow. Dify structured output is enabled. Return only the structured fields. Decide whether Table A and Table B describe the same kind of real-world entity. Be conservative: if the domains differ, or if no comparable name/title field exists, set related=false.
+            - id: user-prompt
+              role: user
+              text: |-
+                The exact column-header match failed, so you must judge schema compatibility semantically before the workflow can continue.
+
+                Strict match result from backend:
+                {{#strict_schema_match.body#}}
+
+                Rules:
+                1. related=true only when both tables describe the same entity type and have comparable primary identity fields such as title, name, product_name, restaurant name, publication title, phone, address, brand, manufacturer, author, venue, year, or price.
+                2. related=false when one table is products/software and the other is publications, restaurants, people, organizations, or another different domain.
+                3. Identifier-only overlap such as id, uuid, row_id, source, class, label, or internal keys is not enough.
+                4. If the schemas are compatible but column names differ, provide column_mapping from Table A fields to Table B fields.
+                5. Keep confidence between 0 and 1. Use confidence below 0.75 for weak or ambiguous schema evidence.
+                6. Do not inspect or assume row values. Use only the provided columns and reason text.
+                7. Treat Beer_Name, Brew_Factory_Name, Style, and ABV as beer-domain columns. They are not product/software columns.
+                8. Treat addr, city, phone, type, and class together as restaurant/location-domain columns. They are not product/software columns and not beer-domain columns unless explicit beer fields also exist.
+                9. Treat title, manufacturer, and price together as product/software-commerce columns unless stronger domain-specific columns prove otherwise.
+                10. Cross-domain pairs such as product/software vs beer, product/software vs restaurant, or beer vs restaurant must return related=false even when both tables have id or title-like fields.
+          reasoning_format: separated
+          retry_config:
+            enabled: true
+            exponential_backoff:
+              enabled: true
+              max_interval: 10000
+              multiplier: 2
+            max_retries: 2
+            retry_interval: 1000
+          selected: false
+          structured_output:
+            schema:
+              additionalProperties: false
+              properties:
+                blocking_columns:
+                  description: Columns suitable for candidate blocking, such as title/name plus brand, author, phone, address, or year.
+                  items:
+                    type: string
+                  type: array
+                column_mapping:
+                  additionalProperties:
+                    type: string
+                  description: Mapping from Table A columns to semantically equivalent Table B columns.
+                  type: object
+                confidence:
+                  description: Confidence in the schema compatibility judgment, from 0 to 1.
+                  type: number
+                entity_type:
+                  description: The shared entity type when related=true, otherwise the most likely mismatch summary.
+                  type: string
+                ignored_columns:
+                  description: Identifier, label, source, or internal columns ignored for entity matching.
+                  items:
+                    type: string
+                  type: array
+                reason:
+                  description: Brief reason for the compatibility decision.
+                  type: string
+                related:
+                  description: Whether the two tables describe the same entity type and can continue to matching.
+                  type: boolean
+                relation_type:
+                  description: same_entity_table when compatible, dataset_type_mismatch when incompatible, uncertain_schema when evidence is weak.
+                  enum:
+                    - same_entity_table
+                    - dataset_type_mismatch
+                    - uncertain_schema
+                  type: string
+              required:
+                - related
+                - relation_type
+                - entity_type
+                - confidence
+                - reason
+                - column_mapping
+                - ignored_columns
+                - blocking_columns
+              type: object
+          structured_output_enabled: true
+          title: LLM Schema 判别
+          type: llm
+          variables: []
+          vision:
+            enabled: false
+        height: 126
+        id: analyze_schema
+        position:
+          x: 980
+          y: 460
+        positionAbsolute:
+          x: 980
+          y: 460
+        selected: false
+        sourcePosition: right
+        targetPosition: left
+        type: custom
+        width: 244
+      - data:
+          cases:
+            - case_id: schema_related
+              conditions:
+                - comparison_operator: is
+                  id: schema-related-condition
+                  value: true
+                  varType: boolean
+                  variable_selector:
+                    - analyze_schema
+                    - structured_output
+                    - related
+              id: schema_related
+              logical_operator: and
+          desc: LLM-compatible schemas continue to ingestion. LLM schema mismatch ends early.
+          selected: false
+          title: Schema 是否通过
+          type: if-else
+        height: 152
+        id: analyze_schema_branch
+        position:
+          x: 1280
+          y: 460
+        positionAbsolute:
+          x: 1280
+          y: 460
+        selected: false
+        sourcePosition: right
+        targetPosition: left
+        type: custom
+        width: 244
+      - data:
+          code: |-
+            import json
+
+            def main(match_run_id: str, offset: int, clusters, current_batch_body: str) -> dict:
+                if isinstance(clusters, str):
+                    try:
+                        clusters = json.loads(clusters)
+                    except Exception:
+                        clusters = []
+                if not isinstance(clusters, list):
+                    clusters = []
+
+                try:
+                    current_batch = json.loads(current_batch_body) if isinstance(current_batch_body, str) else (current_batch_body or {})
+                except Exception:
+                    current_batch = {}
+                current_clusters = current_batch.get("clusters") if isinstance(current_batch, dict) else []
+                if not isinstance(current_clusters, list):
+                    current_clusters = []
+
+                result_by_id = {}
+                for cluster in clusters:
+                    if isinstance(cluster, dict):
+                        cluster_id = str(cluster.get("cluster_id") or "")
+                        if cluster_id:
+                            result_by_id[cluster_id] = cluster
+                current_cluster_ids = [
+                    str(cluster.get("cluster_id") or "")
+                    for cluster in current_clusters
+                    if isinstance(cluster, dict) and str(cluster.get("cluster_id") or "")
+                ]
+                filtered_clusters = [
+                    result_by_id[cluster_id]
+                    for cluster_id in current_cluster_ids
+                    if cluster_id in result_by_id
+                ]
+                llm_result = {
+                    "clusters": filtered_clusters
+                }
+                body = {
+                    "match_run_id": match_run_id or "",
+                    "offset": int(offset or 0),
+                    "limit": 30,
+                    "llm_result": llm_result,
+                    "source": "llm",
+                    "reason": "Dify 循环中的知识库大模型实体分组",
+                }
+                return {
+                    "commit_body_json": json.dumps(body, ensure_ascii=False)
+                }
+          code_language: python3
+          desc: 生成完整的 /commit-llm-batch 请求体，提交当前冲突簇批次的大模型实体分组结果。
+          isInIteration: false
+          isInLoop: true
+          loop_id: llm_batch_loop
+          outputs:
+            commit_body_json:
+              children: null
+              type: string
+          selected: false
+          title: 生成提交请求体
+          type: code
+          variables:
+            - value_selector:
+                - ingest_and_match
+                - body
+                - match_run_id
+              value_type: string
+              variable: match_run_id
+            - value_selector:
+                - llm_batch_loop
+                - offset
+              value_type: number
+              variable: offset
+            - value_selector:
+                - llm_batch_review
+                - structured_output
+                - clusters
+              value_type: array[object]
+              variable: clusters
+            - value_selector:
+                - get_llm_batch
+                - body
+              value_type: string
+              variable: current_batch_body
+        height: 126
+        id: prepare_llm_result
+        parentId: llm_batch_loop
+        position:
+          x: 1050
+          y: 100
+        positionAbsolute:
+          x: 2030
+          y: 240
+        selected: false
+        sourcePosition: right
+        targetPosition: left
+        type: custom
+        width: 244
+        zIndex: 1002
+      - data:
+          authorization:
+            config: null
+            type: no-auth
+          body:
+            data:
+              - id: json-body-ingest-and-match
+                type: text
+                value: |-
+                  {
+                    "table_a_path": "{{#start.table_a_path#}}",
+                    "table_b_path": "{{#start.table_b_path#}}",
+                    "incoming_csv_path": "{{#start.incoming_csv_path#}}"
+                  }
+            type: json
+          desc: 后端完成上传校验、CSV 加载、预处理、粗筛、自动实体聚类、无冲突实体写库，并保存需要大模型判定的冲突实体簇。
+          headers: Content-Type:application/json
+          method: post
+          params: ""
+          selected: false
+          timeout:
+            connect: 10
+            max_connect_timeout: 0
+            max_read_timeout: 0
+            max_write_timeout: 0
+            read: 600
+            write: 60
+          title: 摄入并匹配
+          type: http-request
+          url: "{{#env.MDM_API_BASE#}}/ingest-and-match"
+        height: 126
+        id: ingest_and_match
+        position:
+          x: 380
+          y: 280
+        positionAbsolute:
+          x: 380
+          y: 280
+        selected: false
+        sourcePosition: right
+        targetPosition: left
+        type: custom
+        width: 244
+      - data:
+          cases:
+            - case_id: schema_mismatch
+              conditions:
+                - comparison_operator: contains
+                  id: schema-mismatch-status-condition
+                  value: schema_mismatch
+                  varType: string
+                  variable_selector:
+                    - ingest_and_match
+                    - body
+              id: schema_mismatch
+              logical_operator: and
+            - case_id: reupload_required
+              conditions:
+                - comparison_operator: contains
+                  id: reupload-required-status-condition
+                  value: reupload_required
+                  varType: string
+                  variable_selector:
+                    - ingest_and_match
+                    - body
+              id: reupload_required
+              logical_operator: and
+            - case_id: llm_required
+              conditions:
+                - comparison_operator: contains
+                  id: llm-status-condition
+                  value: llm_required
+                  varType: string
+                  variable_selector:
+                    - ingest_and_match
+                    - body
+              id: llm_required
+              logical_operator: and
+          desc: 只有摄入结果包含冲突实体簇时，才进入 Dify Loop 循环处理；没有冲突簇、需要重传或全部已自动处理时直接结束。
+          selected: false
+          title: 是否需要冲突簇循环
+          type: if-else
+        height: 152
+        id: need_llm_branch
+        position:
+          x: 680
+          y: 280
+        positionAbsolute:
+          x: 680
+          y: 280
+        selected: false
+        sourcePosition: right
+        targetPosition: left
+        type: custom
+        width: 244
+      - data:
+          break_conditions:
+            - comparison_operator: is
+              id: loop-break-when-no-more
+              value: false
+              varType: boolean
+              variable_selector:
+                - llm_batch_loop
+                - has_more
+          desc: 循环拉取冲突实体簇批次。每轮处理 30 个簇，减少大模型调用次数；后端会避免重复返回候选内容，直到 /commit-llm-batch 返回 has_more=false。
+          error_handle_mode: terminated
+          height: 330
+          logical_operator: and
+          loop_count: 100
+          loop_variables:
+            - id: loop-variable-offset
+              label: offset
+              value: "0"
+              value_type: constant
+              var_type: number
+            - id: loop-variable-has-more
+              label: has_more
+              value: true
+              value_type: constant
+              var_type: boolean
+          selected: false
+          start_node_id: llm_batch_loop_start
+          title: 循环处理冲突实体簇
+          type: loop
+          width: 1960
+        height: 330
+        id: llm_batch_loop
+        position:
+          x: 980
+          y: 140
+        positionAbsolute:
+          x: 980
+          y: 140
+        selected: false
+        sourcePosition: right
+        targetPosition: left
+        type: custom
+        width: 1960
+        zIndex: 1
+      - data:
+          desc: ""
+          isInLoop: true
+          selected: false
+          title: ""
+          type: loop-start
+        draggable: false
+        height: 48
+        id: llm_batch_loop_start
+        parentId: llm_batch_loop
+        position:
+          x: 60
+          y: 140
+        positionAbsolute:
+          x: 1040
+          y: 280
+        selectable: false
+        sourcePosition: right
+        targetPosition: left
+        type: custom-loop-start
+        width: 44
+        zIndex: 1002
+      - data:
+          authorization:
+            config: null
+            type: no-auth
+          body:
+            data:
+              - id: json-body-get-llm-batch
+                type: text
+                value: |-
+                  {
+                    "match_run_id": "{{#ingest_and_match.body.match_run_id#}}",
+                    "route": "llm_cluster",
+                    "offset": {{#llm_batch_loop.offset#}},
+                    "limit": 30
+                  }
+            type: json
+          desc: 根据 match_run_id 和当前 offset 拉取一批冲突实体簇。
+          headers: Content-Type:application/json
+          isInIteration: false
+          isInLoop: true
+          loop_id: llm_batch_loop
+          method: post
+          params: ""
+          selected: false
+          timeout:
+            connect: 10
+            max_connect_timeout: 0
+            max_read_timeout: 0
+            max_write_timeout: 0
+            read: 60
+            write: 20
+          title: 拉取冲突实体簇批次
+          type: http-request
+          url: "{{#env.MDM_API_BASE#}}/candidate-batch"
+        height: 126
+        id: get_llm_batch
+        parentId: llm_batch_loop
+        position:
+          x: 150
+          y: 100
+        positionAbsolute:
+          x: 1130
+          y: 240
+        selected: false
+        sourcePosition: right
+        targetPosition: left
+        type: custom
+        width: 244
+        zIndex: 1002
+      - data:
+          dataset_ids:
+            - 00000000-0000-0000-0000-000000000000
+          desc: 检索品牌别名、制造商归一化规则、实体拆分/合并规则、历史匹配样例和错误匹配样例。
+          isInLoop: true
+          loop_id: llm_batch_loop
+          query_variable_selector:
+            - get_llm_batch
+            - body
+          retrieval_mode: single
+          selected: false
+          single_retrieval_config:
+            model:
+              completion_params: {}
+              mode: chat
+              name: deepseek-chat
+              provider: deepseek
+          title: 检索主数据知识库
+          type: knowledge-retrieval
+        height: 92
+        id: retrieve_mdm_knowledge
+        parentId: llm_batch_loop
+        position:
+          x: 450
+          y: 116
+        positionAbsolute:
+          x: 1430
+          y: 256
+        selected: false
+        sourcePosition: right
+        targetPosition: left
+        type: custom
+        width: 244
+        zIndex: 1002
+      - data:
+          context:
+            enabled: true
+            variable_selector:
+              - retrieve_mdm_knowledge
+              - result
+          desc: 对当前批次冲突实体簇进行实体分组，输出严格 JSON。
+          isInLoop: true
+          loop_id: llm_batch_loop
+          model:
+            completion_params:
+              max_tokens: 8192
+              temperature: 0
+            mode: chat
+            name: deepseek-chat
+            provider: deepseek
+          prompt_template:
+            - id: system-prompt
+              role: system
+              text: 你是主数据实体解析审核员。Dify 已启用结构化输出，你只能填写结构化输出字段，不要输出 Markdown 或解释文字。只允许处理当前输入 JSON 中 clusters 数组里的冲突实体簇，不能处理上一轮、示例或记忆中的 cluster_id。你的任务是把每个簇里的 records 拆分成一个或多个真实实体。只有确定为同一真实商品/软件版本/型号的 records 才能放在同一个实体里。canonical_title 必须从该实体成员的原始 title 中选择一个最完整、歧义最少的标题。每个输入 records[].node_id 必须且只能出现在一个 entities[].members 中；如果某条记录不能和其他记录合并，也必须作为单成员实体输出。
+            - id: user-prompt
+              role: user
+              text: "知识库检索结果：\n{{#context#}}\n\n当前冲突实体簇批次，只能处理这里面的 clusters：\n{{#get_llm_batch.body#}}\n\n硬性要求：1. 输出的 clusters 数量必须与当前输入 clusters 数量一致；2. 每个 cluster_id 必须从当前输入 clusters 中原样复制；3. 不允许输出当前输入中不存在的 cluster_id；4. 每个输入 records[].node_id 必须且只能出现一次；5. members 只能使用当前输入 records 中的 node_id；6. 如果一个簇里有多个不同实体，就在 entities 数组里输出多个实体；7. 如果某条记录无法与其他记录确定为同一实体，也必须输出为单成员实体；8. canonical_title 必须从该实体 members 对应的原始 title 中选择，不能编造标题；9. 不要把不同版本、不同型号、不同厂商、不同平台的记录放进同一个实体。"
+          reasoning_format: separated
+          retry_config:
+            enabled: true
+            exponential_backoff:
+              enabled: true
+              max_interval: 10000
+              multiplier: 2
+            max_retries: 2
+            retry_interval: 1000
+          selected: false
+          structured_output:
+            schema:
+              additionalProperties: false
+              properties:
+                clusters:
+                  description: 与输入 clusters 一一对应的实体分组结果。
+                  items:
+                    additionalProperties: false
+                    properties:
+                      cluster_id:
+                        description: 必须原样返回输入 cluster_id。
+                        type: string
+                      entities:
+                        description: 该冲突簇拆分后的真实实体数组。
+                        items:
+                          additionalProperties: false
+                          properties:
+                            aliases:
+                              description: 该实体成员标题的别名数组，可以为空。
+                              items:
+                                type: string
+                              type: array
+                            canonical_title:
+                              description: 必须从该实体 members 对应的原始 title 中选择。
+                              type: string
+                            confidence:
+                              description: 对该实体分组判断的置信度，0 到 1。
+                              type: number
+                            decision:
+                              description: 固定填写 same_entity。
+                              enum:
+                                - same_entity
+                              type: string
+                            members:
+                              description: 该实体包含的 node_id；每个输入 node_id 必须且只能出现在一个 members 中。
+                              items:
+                                type: string
+                              type: array
+                            reason:
+                              description: 简短说明为什么这些成员属于同一实体，或为什么单成员独立。
+                              type: string
+                          required:
+                            - canonical_title
+                            - members
+                            - aliases
+                            - confidence
+                            - decision
+                            - reason
+                          type: object
+                        type: array
+                    required:
+                      - cluster_id
+                      - entities
+                    type: object
+                  type: array
+              required:
+                - clusters
+              type: object
+          structured_output_enabled: true
+          title: 大模型实体分组
+          type: llm
+          variables: []
+          vision:
+            enabled: false
+        height: 126
+        id: llm_batch_review
+        parentId: llm_batch_loop
+        position:
+          x: 750
+          y: 100
+        positionAbsolute:
+          x: 1730
+          y: 240
+        selected: false
+        sourcePosition: right
+        targetPosition: left
+        type: custom
+        width: 244
+        zIndex: 1002
+      - data:
+          authorization:
+            config: null
+            type: no-auth
+          body:
+            data:
+              - id: json-body-commit-llm-batch
+                type: text
+                value: "{{#prepare_llm_result.commit_body_json#}}"
+            type: json
+          desc: 将当前批次的大模型实体分组结果写入数据库，并返回 next_offset 和 has_more。
+          headers: Content-Type:application/json
+          isInIteration: false
+          isInLoop: true
+          loop_id: llm_batch_loop
+          method: post
+          params: ""
+          selected: false
+          timeout:
+            connect: 10
+            max_connect_timeout: 0
+            max_read_timeout: 0
+            max_write_timeout: 0
+            read: 90
+            write: 20
+          title: 写入当前冲突簇结果
+          type: http-request
+          url: "{{#env.MDM_API_BASE#}}/commit-llm-batch"
+        height: 126
+        id: commit_llm_batch
+        parentId: llm_batch_loop
+        position:
+          x: 1350
+          y: 100
+        positionAbsolute:
+          x: 2330
+          y: 240
+        selected: false
+        sourcePosition: right
+        targetPosition: left
+        type: custom
+        width: 244
+        zIndex: 1002
+      - data:
+          code: |-
+            import json
+
+            def main(commit_body: str) -> dict:
+                try:
+                    payload = json.loads(commit_body) if isinstance(commit_body, str) else (commit_body or {})
+                except Exception:
+                    payload = {}
+                return {
+                    "next_offset": int(payload.get("next_offset") or 0),
+                    "has_more": bool(payload.get("has_more", False)),
+                    "committed_count": int(payload.get("committed_count") or 0),
+                }
+          code_language: python3
+          desc: 解析提交接口返回值，提取下一轮 offset 和是否还有下一批。
+          isInIteration: false
+          isInLoop: true
+          loop_id: llm_batch_loop
+          outputs:
+            committed_count:
+              children: null
+              type: number
+            has_more:
+              children: null
+              type: boolean
+            next_offset:
+              children: null
+              type: number
+          selected: false
+          title: 解析循环状态
+          type: code
+          variables:
+            - value_selector:
+                - commit_llm_batch
+                - body
+              value_type: string
+              variable: commit_body
+        height: 126
+        id: parse_loop_state
+        parentId: llm_batch_loop
+        position:
+          x: 1650
+          y: 100
+        positionAbsolute:
+          x: 2630
+          y: 240
+        selected: false
+        sourcePosition: right
+        targetPosition: left
+        type: custom
+        width: 244
+        zIndex: 1002
+      - data:
+          desc: 更新 loop 变量，供下一轮拉取候选批次使用。
+          isInIteration: false
+          isInLoop: true
+          items:
+            - input_type: variable
+              operation: over-write
+              value:
+                - parse_loop_state
+                - next_offset
+              variable_selector:
+                - llm_batch_loop
+                - offset
+              write_mode: over-write
+            - input_type: variable
+              operation: over-write
+              value:
+                - parse_loop_state
+                - has_more
+              variable_selector:
+                - llm_batch_loop
+                - has_more
+              write_mode: over-write
+          loop_id: llm_batch_loop
+          selected: false
+          title: 更新循环变量
+          type: assigner
+          version: "2"
+        height: 110
+        id: update_loop_state
+        parentId: llm_batch_loop
+        position:
+          x: 1950
+          y: 108
+        positionAbsolute:
+          x: 2930
+          y: 248
+        selected: false
+        sourcePosition: right
+        targetPosition: left
+        type: custom
+        width: 244
+        zIndex: 1002
+      - data:
+          authorization:
+            config: null
+            type: no-auth
+          body:
+            data:
+              - id: json-body-finalize-match-run
+                type: text
+                value: |-
+                  {
+                    "match_run_id": "{{#ingest_and_match.body.match_run_id#}}",
+                    "table_a_path": "{{#start.table_a_path#}}",
+                    "table_b_path": "{{#start.table_b_path#}}",
+                    "incoming_csv_path": "{{#start.incoming_csv_path#}}",
+                    "fallback_remaining": true,
+                    "merge_duplicates": true
+                  }
+            type: json
+          desc: 工作流结束前执行最终质量收尾：补齐未处理冲突簇、补齐缺失来源记录、合并高精度重复实体并返回质量报告。
+          headers: Content-Type:application/json
+          method: post
+          params: ""
+          selected: false
+          timeout:
+            connect: 10
+            max_connect_timeout: 0
+            max_read_timeout: 0
+            max_write_timeout: 0
+            read: 600
+            write: 60
+          title: 最终质量收尾
+          type: http-request
+          url: "{{#env.MDM_API_BASE#}}/finalize-match-run"
+        height: 126
+        id: finalize_match_run
+        position:
+          x: 3020
+          y: 140
+        positionAbsolute:
+          x: 3020
+          y: 140
+        selected: false
+        sourcePosition: right
+        targetPosition: left
+        type: custom
+        width: 244
+      - data:
+          desc: 输出摄入结果和冲突实体簇循环处理状态。
+          outputs:
+            - value_selector:
+                - ingest_and_match
+                - body
+              value_type: string
+              variable: ingest_result
+            - value_selector:
+                - llm_batch_loop
+                - offset
+              value_type: number
+              variable: final_offset
+            - value_selector:
+                - llm_batch_loop
+                - has_more
+              value_type: boolean
+              variable: has_more_conflict_clusters
+            - value_selector:
+                - finalize_match_run
+                - body
+              value_type: string
+              variable: final_quality_result
+          selected: false
+          title: 结束
+          type: end
+        height: 120
+        id: workflow_end
+        position:
+          x: 3020
+          y: 280
+        positionAbsolute:
+          x: 3020
+          y: 280
+        selected: false
+        sourcePosition: right
+        targetPosition: left
+        type: custom
+        width: 244
+      - data:
+          desc: End immediately when the ingest response says schema_mismatch or reupload_required.
+          outputs:
+            - value_selector:
+                - ingest_and_match
+                - body
+              value_type: string
+              variable: early_ingest_result
+            - value_selector:
+                - ingest_and_match
+                - body
+              value_type: string
+              variable: early_final_quality_result
+          selected: false
+          title: Early End
+          type: end
+        height: 90
+        id: schema_mismatch_end
+        position:
+          x: 980
+          y: 520
+        positionAbsolute:
+          x: 980
+          y: 520
+        selected: false
+        sourcePosition: right
+        targetPosition: left
+        type: custom
+        width: 244
+      - data:
+          desc: End before ingestion when strict schema match failed and the LLM schema gate judged the two CSV schemas incompatible.
+          outputs:
+            - value_selector:
+                - strict_schema_match
+                - body
+              value_type: string
+              variable: strict_schema_result
+            - value_selector:
+                - analyze_schema
+                - structured_output
+                - related
+              value_type: boolean
+              variable: schema_related
+            - value_selector:
+                - analyze_schema
+                - structured_output
+                - relation_type
+              value_type: string
+              variable: relation_type
+            - value_selector:
+                - analyze_schema
+                - structured_output
+                - reason
+              value_type: string
+              variable: schema_reason
+          selected: false
+          title: Schema Early End
+          type: end
+        height: 120
+        id: schema_gate_mismatch_end
+        position:
+          x: 1580
+          y: 620
+        positionAbsolute:
+          x: 1580
+          y: 620
+        selected: false
+        sourcePosition: right
+        targetPosition: left
+        type: custom
+        width: 244
+    viewport:
+      x: 0
+      y: 0
+      zoom: 0.7
+  rag_pipeline_variables: []

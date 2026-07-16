@@ -1,0 +1,599 @@
+INFO:     Started server process [26740]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:61917 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /strict-schema-match HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /ingest-and-match HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /finalize-match-run HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61926 - "GET /admin/dashboard-metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61927 - "GET /admin/metrics HTTP/1.1" 404 Not Found
+INFO:     Started server process [5432]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:61928 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /strict-schema-match HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /ingest-and-match HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /finalize-match-run HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61936 - "GET /admin/dashboard-metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61937 - "GET /admin/metrics HTTP/1.1" 404 Not Found
+INFO:     Started server process [18932]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:61938 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /strict-schema-match HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /ingest-and-match HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /candidate-batch HTTP/1.1" 404 Not Found
+INFO:     172.18.0.11:0 - "POST /commit-llm-batch HTTP/1.1" 400 Bad Request
+INFO:     172.18.0.11:0 - "POST /finalize-match-run HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61959 - "GET /admin/dashboard-metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61960 - "GET /admin/metrics HTTP/1.1" 404 Not Found
+INFO:     Started server process [2564]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:61961 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /strict-schema-match HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61970 - "GET /admin/entity-quality?expected_table1=150&expected_table2=150 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61971 - "GET /admin/dashboard-metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61972 - "GET /admin/metrics HTTP/1.1" 404 Not Found
+INFO:     Started server process [14692]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:61973 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /strict-schema-match HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61983 - "GET /admin/entity-quality?expected_table1=150&expected_table2=150 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61984 - "GET /admin/dashboard-metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61985 - "GET /admin/metrics HTTP/1.1" 404 Not Found
+INFO:     Started server process [14208]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:61986 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /strict-schema-match HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61995 - "GET /admin/entity-quality?expected_table1=150&expected_table2=150 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61996 - "GET /admin/dashboard-metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61997 - "GET /admin/metrics HTTP/1.1" 404 Not Found
+INFO:     Started server process [23300]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:62011 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /strict-schema-match HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /ingest-and-match HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /finalize-match-run HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62019 - "GET /admin/dashboard-metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62020 - "GET /admin/metrics HTTP/1.1" 404 Not Found
+INFO:     Started server process [19988]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:62022 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /strict-schema-match HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /ingest-and-match HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /finalize-match-run HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62030 - "GET /admin/dashboard-metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62031 - "GET /admin/metrics HTTP/1.1" 404 Not Found
+INFO:     Started server process [28404]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:62032 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /strict-schema-match HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /ingest-and-match HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /candidate-batch HTTP/1.1" 404 Not Found
+INFO:     172.18.0.11:0 - "POST /commit-llm-batch HTTP/1.1" 400 Bad Request
+INFO:     172.18.0.11:0 - "POST /finalize-match-run HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62052 - "GET /admin/dashboard-metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62053 - "GET /admin/metrics HTTP/1.1" 404 Not Found
+INFO:     Started server process [24740]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:62054 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /strict-schema-match HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62063 - "GET /admin/entity-quality?expected_table1=150&expected_table2=150 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62064 - "GET /admin/dashboard-metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62065 - "GET /admin/metrics HTTP/1.1" 404 Not Found
+INFO:     Started server process [3324]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:62066 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /strict-schema-match HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62075 - "GET /admin/entity-quality?expected_table1=150&expected_table2=150 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62076 - "GET /admin/dashboard-metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62077 - "GET /admin/metrics HTTP/1.1" 404 Not Found
+INFO:     Started server process [7692]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:62078 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /strict-schema-match HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62087 - "GET /admin/entity-quality?expected_table1=150&expected_table2=150 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62088 - "GET /admin/dashboard-metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62089 - "GET /admin/metrics HTTP/1.1" 404 Not Found
+INFO:     Started server process [19160]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:56518 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /strict-schema-match HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /ingest-and-match HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /candidate-batch HTTP/1.1" 404 Not Found
+INFO:     172.18.0.11:0 - "POST /commit-llm-batch HTTP/1.1" 400 Bad Request
+INFO:     172.18.0.11:0 - "POST /finalize-match-run HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56545 - "GET /admin/dashboard-metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:56546 - "GET /admin/metrics HTTP/1.1" 404 Not Found
+INFO:     Started server process [5916]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:56547 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /strict-schema-match HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56600 - "GET /admin/entity-quality?expected_table1=4345&expected_table2=3000 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56601 - "GET /admin/dashboard-metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:56602 - "GET /admin/metrics HTTP/1.1" 404 Not Found
+INFO:     Started server process [28636]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:56603 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /strict-schema-match HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /ingest-and-match HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56615 - "GET /admin/entity-quality?expected_table1=533&expected_table2=331 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56616 - "GET /admin/dashboard-metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:56617 - "GET /admin/metrics HTTP/1.1" 404 Not Found
+INFO:     Started server process [8792]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:56618 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /strict-schema-match HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56630 - "GET /admin/entity-quality?expected_table1=1363&expected_table2=4345 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56631 - "GET /admin/dashboard-metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:56632 - "GET /admin/metrics HTTP/1.1" 404 Not Found
+INFO:     Started server process [2752]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:56633 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /strict-schema-match HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56642 - "GET /admin/entity-quality?expected_table1=1363&expected_table2=533 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56643 - "GET /admin/dashboard-metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:56644 - "GET /admin/metrics HTTP/1.1" 404 Not Found
+INFO:     Started server process [16428]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:56645 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /strict-schema-match HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56658 - "GET /admin/entity-quality?expected_table1=4345&expected_table2=533 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56659 - "GET /admin/dashboard-metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:56660 - "GET /admin/metrics HTTP/1.1" 404 Not Found
+INFO:     Started server process [7540]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:64164 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /strict-schema-match HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /ingest-and-match HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /candidate-batch HTTP/1.1" 404 Not Found
+INFO:     172.18.0.11:0 - "POST /commit-llm-batch HTTP/1.1" 400 Bad Request
+INFO:     172.18.0.11:0 - "POST /finalize-match-run HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64184 - "GET /admin/dashboard-metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:64185 - "GET /admin/metrics HTTP/1.1" 404 Not Found
+INFO:     Started server process [5944]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:64186 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /strict-schema-match HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /ingest-and-match HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /candidate-batch HTTP/1.1" 404 Not Found
+INFO:     172.18.0.11:0 - "POST /commit-llm-batch HTTP/1.1" 400 Bad Request
+INFO:     172.18.0.11:0 - "POST /finalize-match-run HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64211 - "GET /admin/dashboard-metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:64212 - "GET /admin/metrics HTTP/1.1" 404 Not Found
+INFO:     Started server process [6668]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:64213 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /strict-schema-match HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /ingest-and-match HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /candidate-batch HTTP/1.1" 404 Not Found
+INFO:     172.18.0.11:0 - "POST /commit-llm-batch HTTP/1.1" 400 Bad Request
+INFO:     172.18.0.11:0 - "POST /finalize-match-run HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64226 - "GET /admin/dashboard-metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:64227 - "GET /admin/metrics HTTP/1.1" 404 Not Found
+INFO:     Started server process [14352]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:64229 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /strict-schema-match HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64241 - "GET /admin/entity-quality?expected_table1=1363&expected_table2=4345 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64242 - "GET /admin/dashboard-metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:64243 - "GET /admin/metrics HTTP/1.1" 404 Not Found
+INFO:     Started server process [10780]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:64244 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /strict-schema-match HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64255 - "GET /admin/entity-quality?expected_table1=1363&expected_table2=533 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64256 - "GET /admin/dashboard-metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:64257 - "GET /admin/metrics HTTP/1.1" 404 Not Found
+INFO:     Started server process [24776]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:64258 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /strict-schema-match HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64269 - "GET /admin/entity-quality?expected_table1=4345&expected_table2=533 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64270 - "GET /admin/dashboard-metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:64271 - "GET /admin/metrics HTTP/1.1" 404 Not Found
+INFO:     Started server process [28492]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:64379 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /strict-schema-match HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /ingest-and-match HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /candidate-batch HTTP/1.1" 404 Not Found
+INFO:     172.18.0.11:0 - "POST /commit-llm-batch HTTP/1.1" 400 Bad Request
+INFO:     172.18.0.11:0 - "POST /finalize-match-run HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64399 - "GET /admin/dashboard-metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:64400 - "GET /admin/metrics HTTP/1.1" 404 Not Found
+INFO:     Started server process [29664]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:64401 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /strict-schema-match HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64435 - "GET /admin/entity-quality?expected_table1=2616&expected_table2=64263 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64436 - "GET /admin/dashboard-metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:64437 - "GET /admin/metrics HTTP/1.1" 404 Not Found
+INFO:     Started server process [25956]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:64438 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /strict-schema-match HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60915 - "GET /admin/entity-quality?expected_table1=6907&expected_table2=55923 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60916 - "GET /admin/dashboard-metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60917 - "GET /admin/metrics HTTP/1.1" 404 Not Found
+INFO:     Started server process [25780]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:60918 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /strict-schema-match HTTP/1.1" 200 OK
+INFO:     Started server process [9152]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:63549 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /strict-schema-match HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /ingest-and-match HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /candidate-batch HTTP/1.1" 404 Not Found
+INFO:     172.18.0.11:0 - "POST /commit-llm-batch HTTP/1.1" 400 Bad Request
+INFO:     172.18.0.11:0 - "POST /finalize-match-run HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63570 - "GET /admin/dashboard-metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:63571 - "GET /admin/metrics HTTP/1.1" 404 Not Found
+INFO:     Started server process [6124]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:63574 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /strict-schema-match HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57146 - "GET /admin/entity-quality?expected_table1=2616&expected_table2=64263 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57147 - "GET /admin/dashboard-metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57148 - "GET /admin/metrics HTTP/1.1" 404 Not Found
+INFO:     Started server process [19824]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:57149 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /strict-schema-match HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57189 - "GET /admin/entity-quality?expected_table1=6907&expected_table2=55923 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57190 - "GET /admin/dashboard-metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57191 - "GET /admin/metrics HTTP/1.1" 404 Not Found
+INFO:     Started server process [14016]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:59014 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /strict-schema-match HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53417 - "GET /admin/entity-quality?expected_table1=2554&expected_table2=22074 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53418 - "GET /admin/dashboard-metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:53419 - "GET /admin/metrics HTTP/1.1" 404 Not Found
+INFO:     Started server process [29184]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:53424 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /strict-schema-match HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /ingest-and-match HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /candidate-batch HTTP/1.1" 404 Not Found
+INFO:     172.18.0.11:0 - "POST /commit-llm-batch HTTP/1.1" 400 Bad Request
+INFO:     172.18.0.11:0 - "POST /finalize-match-run HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51142 - "GET /admin/dashboard-metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:51143 - "GET /admin/metrics HTTP/1.1" 404 Not Found
+INFO:     Started server process [15532]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:51144 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /strict-schema-match HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50061 - "GET /admin/entity-quality?expected_table1=2616&expected_table2=64263 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50062 - "GET /admin/dashboard-metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:50063 - "GET /admin/metrics HTTP/1.1" 404 Not Found
+INFO:     Started server process [5552]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:65249 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /strict-schema-match HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63138 - "GET /admin/entity-quality?expected_table1=6907&expected_table2=55923 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63139 - "GET /admin/dashboard-metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:63140 - "GET /admin/metrics HTTP/1.1" 404 Not Found
+INFO:     Started server process [29136]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:63141 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /strict-schema-match HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63251 - "GET /admin/entity-quality?expected_table1=2554&expected_table2=22074 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60571 - "GET /admin/dashboard-metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60578 - "GET /admin/metrics HTTP/1.1" 404 Not Found
+INFO:     Started server process [17928]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:60582 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /strict-schema-match HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /ingest-and-match HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /candidate-batch HTTP/1.1" 404 Not Found
+INFO:     172.18.0.11:0 - "POST /commit-llm-batch HTTP/1.1" 400 Bad Request
+INFO:     172.18.0.11:0 - "POST /finalize-match-run HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54010 - "GET /admin/dashboard-metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:54011 - "GET /admin/metrics HTTP/1.1" 404 Not Found
+INFO:     Started server process [10780]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:54012 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /strict-schema-match HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56981 - "GET /admin/entity-quality?expected_table1=2616&expected_table2=6907 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56982 - "GET /admin/dashboard-metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:56983 - "GET /admin/metrics HTTP/1.1" 404 Not Found
+INFO:     Started server process [584]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:56984 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /strict-schema-match HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63190 - "GET /admin/entity-quality?expected_table1=1081&expected_table2=2616 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63191 - "GET /admin/dashboard-metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:63192 - "GET /admin/metrics HTTP/1.1" 404 Not Found
+INFO:     Started server process [660]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:63197 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /strict-schema-match HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61427 - "GET /admin/entity-quality?expected_table1=2554&expected_table2=1081 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61428 - "GET /admin/dashboard-metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61429 - "GET /admin/metrics HTTP/1.1" 404 Not Found
+INFO:     Started server process [7128]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:63814 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /strict-schema-match HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /ingest-and-match HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /candidate-batch HTTP/1.1" 404 Not Found
+INFO:     172.18.0.11:0 - "POST /commit-llm-batch HTTP/1.1" 400 Bad Request
+INFO:     172.18.0.11:0 - "POST /finalize-match-run HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60300 - "GET /admin/dashboard-metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60301 - "GET /admin/metrics HTTP/1.1" 404 Not Found
+INFO:     Started server process [8656]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:60302 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /strict-schema-match HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /ingest-and-match HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /candidate-batch HTTP/1.1" 404 Not Found
+INFO:     172.18.0.11:0 - "POST /commit-llm-batch HTTP/1.1" 400 Bad Request
+INFO:     172.18.0.11:0 - "POST /finalize-match-run HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60321 - "GET /admin/dashboard-metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60322 - "GET /admin/metrics HTTP/1.1" 404 Not Found
+INFO:     Started server process [18176]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:60323 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /strict-schema-match HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /ingest-and-match HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /candidate-batch HTTP/1.1" 404 Not Found
+INFO:     172.18.0.11:0 - "POST /commit-llm-batch HTTP/1.1" 400 Bad Request
+INFO:     172.18.0.11:0 - "POST /finalize-match-run HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60339 - "GET /admin/dashboard-metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60340 - "GET /admin/metrics HTTP/1.1" 404 Not Found
+INFO:     Started server process [28488]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:60341 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /strict-schema-match HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60368 - "GET /admin/entity-quality?expected_table1=2616&expected_table2=1081 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60369 - "GET /admin/dashboard-metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60370 - "GET /admin/metrics HTTP/1.1" 404 Not Found
+INFO:     Started server process [12364]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:60371 - "GET /health HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /strict-schema-match HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60383 - "GET /admin/entity-quality?expected_table1=2616&expected_table2=1081 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60384 - "GET /admin/dashboard-metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60385 - "GET /admin/metrics HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:49352 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49352 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49352 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49352 - "OPTIONS /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49352 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49352 - "OPTIONS /golden-records?limit=100&offset=0&order=asc HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49352 - "GET /golden-records?limit=100&offset=0&order=asc HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49352 - "OPTIONS /validate-upload HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49352 - "POST /validate-upload HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64371 - "OPTIONS /validate-upload HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64371 - "POST /validate-upload HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58716 - "OPTIONS /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58716 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58716 - "OPTIONS /golden-records?limit=100&offset=0&order=asc HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58716 - "GET /golden-records?limit=100&offset=0&order=asc HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58716 - "OPTIONS /validate-upload HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58716 - "POST /validate-upload HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58716 - "OPTIONS /run-dify-workflow HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /strict-schema-match HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60397 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60397 - "OPTIONS /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65066 - "OPTIONS /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57996 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57996 - "OPTIONS /golden-records?limit=100&offset=0&order=asc HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57996 - "GET /golden-records?limit=100&offset=0&order=asc HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52381 - "OPTIONS /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64533 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64533 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64533 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64533 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54418 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54418 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64533 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54418 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64533 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54418 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64533 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54418 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64533 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54418 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64533 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54418 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64533 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54418 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64533 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54418 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64533 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54418 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64533 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54418 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64533 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54418 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64533 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54418 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64533 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54418 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64533 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54418 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49869 - "OPTIONS /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59740 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63690 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57958 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63690 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57958 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63690 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57958 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63690 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57958 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57958 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63690 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57958 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63690 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57958 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63690 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57958 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63690 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57958 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63690 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57958 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63690 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57958 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63690 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57958 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63690 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57958 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63690 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57958 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63690 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /ingest-and-match HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57958 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /candidate-batch HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:63690 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57958 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63690 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57958 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63690 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57958 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63690 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /commit-llm-batch HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:57958 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63690 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57958 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63690 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57958 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63690 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57958 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63690 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57958 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63690 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57958 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63690 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57958 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63690 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57958 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63690 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57958 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63690 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57958 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63690 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57958 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63690 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57958 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63690 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57958 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63690 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57958 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63690 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57958 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63690 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57958 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63690 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57958 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     172.18.0.11:0 - "POST /finalize-match-run HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55578 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55578 - "OPTIONS /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55578 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55578 - "OPTIONS /golden-records?limit=100&offset=0&order=asc HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55578 - "GET /golden-records?limit=100&offset=0&order=asc HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52405 - "OPTIONS /search?q=qingdao&limit=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52405 - "GET /search?q=qingdao&limit=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52405 - "OPTIONS /search?q=qingdao&limit=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52405 - "GET /search?q=qingdao&limit=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53889 - "OPTIONS /search?q=amber&limit=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53889 - "GET /search?q=amber&limit=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55525 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55525 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63528 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63528 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55525 - "GET /dashboard-metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64408 - "OPTIONS /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64408 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64408 - "OPTIONS /golden-records?limit=100&offset=0&order=asc HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64408 - "GET /golden-records?limit=100&offset=0&order=asc HTTP/1.1" 200 OK

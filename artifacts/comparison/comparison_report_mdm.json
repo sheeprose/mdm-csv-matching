@@ -1,0 +1,54 @@
+{
+  "inputs": {
+    "reference_path": "structured_dn2\\master.csv",
+    "sqlite_path": "artifacts\\mdm.sqlite3"
+  },
+  "counts": {
+    "reference_master_rows": 3388,
+    "reference_clusters": 3388,
+    "predicted_clusters_from_source_links": 3359,
+    "reference_A_source_count": 1354,
+    "reference_B_source_count": 3039,
+    "predicted_A_source_count": 1354,
+    "predicted_B_source_count": 3039,
+    "golden_records": 3359,
+    "action_log": 1195,
+    "review_tasks": 0,
+    "entities": 3359,
+    "entity_aliases": 4224,
+    "source_record_links": 4393,
+    "match_decisions": 3719,
+    "duplicate_source_ref_count_in_links": 0
+  },
+  "source_coverage": {
+    "A_covered": 1354,
+    "A_missing": 0,
+    "A_extra": 0,
+    "A_recall": 1.0,
+    "B_covered": 3039,
+    "B_missing": 0,
+    "B_extra": 0,
+    "B_recall": 1.0
+  },
+  "cluster_exact_match": {
+    "exact_match_count": 2493,
+    "missing_reference_cluster_count": 895,
+    "extra_predicted_cluster_count": 866,
+    "precision": 0.742185,
+    "recall": 0.735832
+  },
+  "cross_source_pair_linkage": {
+    "tp": 679,
+    "fp": 231,
+    "fn": 326,
+    "precision": 0.746154,
+    "recall": 0.675622,
+    "f1": 0.709138
+  },
+  "canonical_title_on_exact_clusters": {
+    "compared": 2493,
+    "exact_title_matches": 2044,
+    "exact_title_match_rate": 0.819896
+  },
+  "duplicate_source_links": []
+}

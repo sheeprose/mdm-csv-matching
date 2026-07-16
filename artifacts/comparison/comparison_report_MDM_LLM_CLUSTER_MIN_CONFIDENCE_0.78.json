@@ -1,0 +1,54 @@
+{
+  "inputs": {
+    "reference_path": "C:\\Users\\86153\\Desktop\\a\\structured_amazon_google\\master.csv",
+    "sqlite_path": "C:\\Users\\86153\\Desktop\\MDM_LLM_CLUSTER_MIN_CONFIDENCE=0.78.sqlite3"
+  },
+  "counts": {
+    "reference_master_rows": 3595,
+    "reference_clusters": 3595,
+    "predicted_clusters_from_source_links": 4200,
+    "reference_A_source_count": 1363,
+    "reference_B_source_count": 3226,
+    "predicted_A_source_count": 1363,
+    "predicted_B_source_count": 3226,
+    "golden_records": 4200,
+    "action_log": 1050,
+    "review_tasks": 0,
+    "entities": 4200,
+    "entity_aliases": 4352,
+    "source_record_links": 4589,
+    "match_decisions": 4686,
+    "duplicate_source_ref_count_in_links": 0
+  },
+  "source_coverage": {
+    "A_covered": 1363,
+    "A_missing": 0,
+    "A_extra": 0,
+    "A_recall": 1.0,
+    "B_covered": 3226,
+    "B_missing": 0,
+    "B_extra": 0,
+    "B_recall": 1.0
+  },
+  "cluster_exact_match": {
+    "exact_match_count": 2178,
+    "missing_reference_cluster_count": 1417,
+    "extra_predicted_cluster_count": 2022,
+    "precision": 0.518571,
+    "recall": 0.605841
+  },
+  "cross_source_pair_linkage": {
+    "tp": 117,
+    "fp": 70,
+    "fn": 1050,
+    "precision": 0.625668,
+    "recall": 0.100257,
+    "f1": 0.172821
+  },
+  "canonical_title_on_exact_clusters": {
+    "compared": 2178,
+    "exact_title_matches": 2170,
+    "exact_title_match_rate": 0.996327
+  },
+  "duplicate_source_links": []
+}

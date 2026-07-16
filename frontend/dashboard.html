@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MDM 量化看板</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">MDM Metrics</p>
+      <h1>主数据量化看板</h1>
+    </div>
+    <nav>
+      <a href="./index.html">工作台</a>
+      <a class="active" href="./dashboard.html">量化看板</a>
+    </nav>
+  </header>
+
+  <main class="dashboard">
+    <section class="hero-panel">
+      <div>
+        <p class="eyebrow">BI Overview</p>
+        <h2>输入、处理、合并效果与模型质量一屏查看</h2>
+      </div>
+      <div class="status-strip">
+        <label>
+          本地 MDM API
+          <input id="apiBase" value="http://127.0.0.1:8000">
+        </label>
+        <button id="refreshBtn" type="button">刷新</button>
+      </div>
+    </section>
+
+    <section class="panel dashboard-panel">
+      <div class="section-title">
+        <h2>核心指标</h2>
+        <span id="qualityNote" class="badge muted">等待质量检查</span>
+      </div>
+      <div class="dashboard-grid">
+        <div class="metric"><span>Table A 输入</span><strong id="tableAInput">0</strong></div>
+        <div class="metric"><span>Table B 输入</span><strong id="tableBInput">0</strong></div>
+        <div class="metric"><span>Table Incoming 输入</span><strong id="incomingInput">0</strong></div>
+        <div class="metric emphasis"><span>主数据输出</span><strong id="masterOutput">0</strong></div>
+      </div>
+      <div class="dashboard-grid">
+        <div class="metric emphasis"><span>F1 Score</span><strong id="f1Score">0</strong></div>
+        <div class="metric"><span>召回率 Recall</span><strong id="recallScore">0</strong></div>
+        <div class="metric"><span>准确率 Precision</span><strong id="precisionScore">0</strong></div>
+        <div class="metric"><span>ROC-AUC</span><strong id="rocAuc">0</strong></div>
+      </div>
+    </section>
+
+    <section class="chart-grid">
+      <div class="chart-box">
+        <h2>输入输出覆盖</h2>
+        <canvas id="coverageChart" width="720" height="320"></canvas>
+      </div>
+      <div class="chart-box">
+        <h2>输入来源分布</h2>
+        <canvas id="inputPie" width="720" height="320"></canvas>
+      </div>
+      <div class="chart-box">
+        <h2>处理数据动向</h2>
+        <canvas id="routingChart" width="720" height="320"></canvas>
+      </div>
+      <div class="chart-box">
+        <h2>合并效果 TP / FP / FN</h2>
+        <canvas id="evaluationChart" width="720" height="320"></canvas>
+      </div>
+    </section>
+
+    <section class="panel table-panel">
+      <div class="section-title">
+        <h2>最近运行摘要</h2>
+        <span id="runId" class="muted">无</span>
+      </div>
+      <pre id="rawMetrics" class="log">等待加载。</pre>
+    </section>
+  </main>
+
+  <script src="./dashboard.js"></script>
+</body>
+</html>

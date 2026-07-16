@@ -1,0 +1,11 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+
+
+.vscode/
+.pytest_cache/
+output/
+*.pptx
+.DS_Store?
+artifacts/match_runs/

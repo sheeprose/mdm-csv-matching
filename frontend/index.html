@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MDM 主数据工作台</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">MDM Data Governance</p>
+      <h1>主数据匹配工作台</h1>
+    </div>
+    <nav>
+      <a class="active" href="./index.html">工作台</a>
+      <a href="./dashboard.html">量化看板</a>
+    </nav>
+  </header>
+
+  <main class="shell">
+    <section class="hero-panel">
+      <div>
+        <p class="eyebrow">Workflow Wizard</p>
+        <h2>按步骤完成 Table A / Table B / Incoming 主数据生成</h2>
+      </div>
+      <div class="status-strip">
+        <span id="healthBadge" class="badge muted">API 未连接</span>
+        <span id="runModeBadge" class="badge">Dify 工作流</span>
+        <span id="recordBadge" class="badge muted">主数据 0 条</span>
+      </div>
+    </section>
+
+    <section id="statusBanner" class="notice hidden">
+      <strong id="statusTitle">状态</strong>
+      <span id="statusText"></span>
+    </section>
+
+    <section class="wizard-grid">
+      <aside class="stepper panel">
+        <div class="step active" data-step="1">
+          <span>1</span>
+          <div>
+            <strong>配置接口</strong>
+            <small>连接本地 MDM 与 Dify</small>
+          </div>
+        </div>
+        <div class="step" data-step="2">
+          <span>2</span>
+          <div>
+            <strong>选择数据表</strong>
+            <small>填写 Table A、Table B、Incoming</small>
+          </div>
+        </div>
+        <div class="step" data-step="3">
+          <span>3</span>
+          <div>
+            <strong>预检并运行</strong>
+            <small>不同类数据会被阻断</small>
+          </div>
+        </div>
+        <div class="step" data-step="4">
+          <span>4</span>
+          <div>
+            <strong>查看结果</strong>
+            <small>预览、检索、下载</small>
+          </div>
+        </div>
+      </aside>
+
+      <section class="panel wizard-card">
+        <div class="section-title">
+          <h2>1. 配置接口</h2>
+          <span class="muted">配置会自动保存到浏览器</span>
+        </div>
+        <div class="grid two">
+          <label>
+            本地 MDM API
+            <input id="apiBase" value="http://127.0.0.1:8000">
+          </label>
+          <label>
+            运行方式
+            <select id="runMode">
+              <option value="dify">Dify 工作流</option>
+              <option value="local">仅本地 API 调试</option>
+            </select>
+          </label>
+        </div>
+        <div class="grid two">
+          <label>
+            Dify Workflow Endpoint
+            <input id="difyEndpoint" value="http://localhost/v1/workflows/run">
+          </label>
+          <label>
+            Dify API Key
+            <input id="difyKey" type="password" placeholder="app-...">
+          </label>
+        </div>
+        <div class="grid two">
+          <label>
+            匹配阈值
+            <input id="threshold" type="number" min="0" max="1" step="0.01" value="0.59">
+          </label>
+          <label>
+            运行用户标识
+            <input id="runUser" value="mdm-web-user">
+          </label>
+        </div>
+      </section>
+
+      <section class="panel wizard-card">
+        <div class="section-title">
+          <h2>2. 选择数据表</h2>
+          <button id="addIncoming" class="ghost" type="button">添加 Incoming</button>
+        </div>
+        <div class="grid two">
+          <label>
+            Table A CSV 路径或 URL
+            <input id="tableAPath" placeholder="D:\mdm7.6v2\mdm_data\structured_amazon_google\tableA.csv">
+          </label>
+          <label>
+            Table B CSV 路径或 URL
+            <input id="tableBPath" placeholder="D:\mdm7.6v2\mdm_data\structured_amazon_google\tableB.csv">
+          </label>
+        </div>
+        <div id="incomingList" class="stack">
+          <label>
+            Incoming / Table C CSV 路径或 URL
+            <input class="incomingPath" placeholder="已有主数据后填写新增 CSV；首次初始化可留空">
+          </label>
+        </div>
+      </section>
+
+      <section class="panel wizard-card run-card">
+        <div class="section-title">
+          <h2>3. 预检并运行</h2>
+          <span class="muted">先校验数据类型，再触发工作流</span>
+        </div>
+        <div class="actions">
+          <button id="validateBtn" class="secondary" type="button">只做预检</button>
+          <button id="runBtn" type="button">运行并刷新结果</button>
+          <button id="refreshBtn" class="secondary" type="button">刷新主数据</button>
+          <a id="downloadLink" class="secondary link-button" href="http://127.0.0.1:8000/golden-records.csv">下载 CSV</a>
+        </div>
+        <pre id="runLog" class="log">等待运行。</pre>
+      </section>
+
+      <aside class="panel search-panel">
+        <div class="section-title">
+          <h2>4. 检索推荐</h2>
+          <span id="resultCount" class="badge">0 条</span>
+        </div>
+        <div class="search-row">
+          <input id="searchInput" placeholder="输入商品名、品牌、SKU、首字母或片段">
+          <button id="searchBtn" type="button">检索</button>
+        </div>
+        <div id="searchResults" class="cards"></div>
+      </aside>
+    </section>
+
+    <section class="panel table-panel">
+      <div class="section-title">
+        <h2>主数据在线预览</h2>
+        <span id="previewMeta" class="muted">前 100 条</span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>实体</th>
+              <th>主标题</th>
+              <th>厂商</th>
+              <th>价格</th>
+              <th>来源</th>
+              <th>置信度</th>
+            </tr>
+          </thead>
+          <tbody id="recordsBody"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>

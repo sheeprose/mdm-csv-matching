@@ -1,0 +1,14 @@
+{
+  "tableA_rows": 1354,
+  "tableB_rows": 3039,
+  "positive_pairs": 1005,
+  "master_rows": 3388,
+  "matched_A_rows": 1005,
+  "matched_B_rows": 1005,
+  "unmatched_A_rows": 349,
+  "unmatched_B_rows": 2034,
+  "duplicate_positive_left_ids": 0,
+  "duplicate_positive_right_ids": 0,
+  "source_dir": "C:\\Users\\86153\\Desktop\\Dn2",
+  "output_dir": "C:\\Users\\86153\\Desktop\\mdm_data\\structured_dn2"
+}
