@@ -6,7 +6,7 @@ from pathlib import Path
 
 
 REFERENCE_PATH = Path(r"C:\Users\86153\Desktop\a\structured_amazon_google\master.csv")
-MATCH_RUN_DIR = Path("artifacts/match_runs")
+MATCH_RUN_DIR = Path("models/main/match_runs")
 
 
 def main() -> None:

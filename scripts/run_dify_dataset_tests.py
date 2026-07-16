@@ -163,7 +163,7 @@ def main() -> int:
 
     same_cases = [
         (
-            "same: structured_amazon_google tableA/tableB",
+            "same: datasets/structured_amazon_google tableA/tableB",
             DATASETS / "structured_amazon_google" / "tableA.csv",
             DATASETS / "structured_amazon_google" / "tableB.csv",
         ),

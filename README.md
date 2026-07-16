@@ -42,31 +42,52 @@ SQLite / MySQL（存储层）
 
 ```
 mdm_data/
-├── mdm_matching/          # Python 核心模块
-│   ├── preprocess.py      # 数据预处理（NFKC、归一化）
-│   ├── features.py        # 特征工程（相似度特征）
-│   ├── train.py           # XGBoost + MLP 训练
-│   ├── service.py         # FastAPI 服务（供 Dify 调用）
-│   ├── smoke_test.py      # 本地自检脚本
+├── mdm_matching/            # Python 核心模块
+│   ├── preprocess.py        # 数据预处理（NFKC、归一化）
+│   ├── features.py          # 特征工程（相似度特征）
+│   ├── train.py             # XGBoost + MLP 训练
+│   ├── service.py           # FastAPI 服务（供 Dify 调用）
+│   ├── smoke_test.py        # 本地自检脚本
 │   └── ...
-├── dify/                  # Dify 工作流 DSL
-│   ├── mdm_workflow.yml   # 主工作流
+├── scripts/                 # 分析、调优、评估工具脚本
+│   ├── evaluate_matching_model.py
+│   ├── tune_fusion_weights.py
+│   ├── analyze_dn2_result.py
+│   ├── run_dify_dataset_metrics.py
+│   └── ...
+├── dify/                    # Dify 工作流 DSL
+│   ├── mdm_workflow.yml     # 主工作流
 │   └── schema_analysis_prompt.md
-├── frontend/              # 人工审核页面
+├── frontend/                # 人工审核页面
 │   ├── index.html
 │   ├── dashboard.html
 │   ├── app.js / dashboard.js
 │   └── styles.css
-├── docs/                  # 技术文档
+├── docs/                    # 技术文档
 │   ├── 快速跑通指南.md
 │   ├── implementation_plan.md
 │   ├── 技术报告.md
 │   ├── 跨设备部署运营方案.md
 │   └── schema_rag_knowledge.md
-├── structured_amazon_google/  # 样例数据集
-├── artifacts/              # 训练产出（模型、数据库）
-├── requirements.txt        # Python 依赖
-└── README.md               # 本文件
+├── datasets/                # 基准评测数据集
+│   ├── structured_amazon_google/  # Amazon vs Google 商品数据
+│   ├── structured_beer/
+│   ├── structured_dblp_acm/
+│   └── ...
+├── data/                    # 工作数据集
+│   ├── dn2/                 # DN2 数据集
+│   ├── mixed_dn2_25/        # 混合数据集
+│   └── rag/                 # RAG 知识卡片
+├── models/                  # 训练产出（模型、数据库）
+│   ├── main/                # 主模型 + SQLite 数据库
+│   ├── bm25/                # BM25 实验模型
+│   ├── mixed/               # 混合训练模型
+│   └── ...
+├── assets/                  # 演示文稿和素材
+│   ├── presentations/       # 中期汇报幻灯片
+│   └── output/              # 流程图等产出
+├── requirements.txt         # Python 依赖
+└── README.md                # 本文件
 ```
 
 ## 快速开始
@@ -83,7 +104,7 @@ pip install -r requirements.txt
 ### 2. 训练模型
 
 ```bash
-python3 -m mdm_matching.train --data-dir structured_amazon_google --output-dir artifacts
+python3 -m mdm_matching.train --data-dir datasets/structured_amazon_google --output-dir models/main
 ```
 
 ### 3. 启动服务
@@ -107,7 +128,7 @@ python3 -m mdm_matching.smoke_test
 MDM_API_BASE=http://host.docker.internal:8000
 ```
 
-然后运行工作流，传入 `structured_amazon_google/tableA.csv` + `tableB.csv`。
+然后运行工作流，传入 `datasets/structured_amazon_google/tableA.csv` + `tableB.csv`。
 
 ## API 清单
 

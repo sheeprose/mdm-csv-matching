@@ -9,3 +9,9 @@ output/
 *.pptx
 .DS_Store?
 artifacts/match_runs/
+models/main/match_runs/
+models/main/mdm_api.log
+models/main/mdm_api_dataset_metrics.log
+models/main/mdm_api_dataset_test.log
+models/main/mdm_api_report_metrics.log
+models/main/mdm_matcher.joblib.bak_*

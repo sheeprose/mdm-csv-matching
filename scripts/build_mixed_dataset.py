@@ -67,8 +67,8 @@ def build_mixed_dataset(inputs: list[tuple[str, Path, float]], output_dir: Path,
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--amazon-dir", type=Path, default=Path("structured_amazon_google"))
-    parser.add_argument("--dn2-dir", type=Path, default=Path("structured_dn2"))
+    parser.add_argument("--amazon-dir", type=Path, default=Path("datasets/structured_amazon_google"))
+    parser.add_argument("--dn2-dir", type=Path, default=Path("data/dn2"))
     parser.add_argument("--output-dir", type=Path, default=Path("structured_mixed"))
     parser.add_argument("--dn2-train-fraction", type=float, default=1.0)
     parser.add_argument("--random-state", type=int, default=42)

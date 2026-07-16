@@ -10,7 +10,7 @@ from typing import Any
 
 PROJECT_ROOT = Path(__file__).resolve().parent
 DEFAULT_SOURCE_DIR = Path(r"C:\Users\86153\Desktop\Dn2")
-DEFAULT_OUTPUT_DIR = PROJECT_ROOT / "structured_dn2"
+DEFAULT_OUTPUT_DIR = PROJECT_ROOT / "data/dn2"
 
 
 def clean_text(value: Any) -> str:

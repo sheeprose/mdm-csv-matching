@@ -83,8 +83,8 @@ def evaluate(data_dir: Path, model_path: Path) -> dict[str, object]:
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--data-dir", type=Path, default=Path("structured_amazon_google"))
-    parser.add_argument("--model-path", type=Path, default=Path("artifacts/mdm_matcher.joblib"))
+    parser.add_argument("--data-dir", type=Path, default=Path("datasets/structured_amazon_google"))
+    parser.add_argument("--model-path", type=Path, default=Path("models/main/mdm_matcher.joblib"))
     args = parser.parse_args()
     print(json.dumps(evaluate(args.data_dir, args.model_path), ensure_ascii=False, indent=2))
 

@@ -36,9 +36,9 @@ from mdm_matching.schema_profile import (
 )
 
 
-MODEL_PATH = Path("artifacts/mdm_matcher.joblib")
-DEFAULT_DATABASE_URL = "sqlite:///artifacts/mdm.sqlite3"
-MATCH_RUN_DIR = Path("artifacts/match_runs")
+MODEL_PATH = Path("models/main/mdm_matcher.joblib")
+DEFAULT_DATABASE_URL = "sqlite:///models/main/mdm.sqlite3"
+MATCH_RUN_DIR = Path("models/main/match_runs")
 MAX_DIFY_LLM_CANDIDATES = int(os.getenv("MDM_MAX_DIFY_LLM_CANDIDATES", "50"))
 MAX_DIFY_REVIEW_PREVIEW = int(os.getenv("MDM_MAX_DIFY_REVIEW_PREVIEW", "0"))
 MAX_DIFY_PAIR_SAMPLE = int(os.getenv("MDM_MAX_DIFY_PAIR_SAMPLE", "10"))
@@ -2520,7 +2520,7 @@ def load_json_file(path: Path) -> dict[str, Any]:
 
 
 def load_latest_comparison_report() -> tuple[dict[str, Any], str | None]:
-    comparison_dir = Path("artifacts/comparison")
+    comparison_dir = Path("models/main/comparison")
     if not comparison_dir.exists():
         return {}, None
     paths = sorted(comparison_dir.glob("comparison_report*.json"), key=lambda path: path.stat().st_mtime, reverse=True)
@@ -2532,7 +2532,7 @@ def load_latest_comparison_report() -> tuple[dict[str, Any], str | None]:
 
 
 def load_model_metrics_file() -> dict[str, Any]:
-    metrics_path = Path("artifacts/metrics.json")
+    metrics_path = Path("models/main/metrics.json")
     return load_json_file(metrics_path) if metrics_path.exists() else {}
 
 
@@ -2549,7 +2549,7 @@ def build_evaluation_metrics(latest_run_updated_at: float | None = None) -> dict
     roc_auc = safe_float(model_metrics.get("roc_auc") or model_metrics.get("auc"), default=0.0)
     cluster_exact = comparison_report.get("cluster_exact_match") if isinstance(comparison_report.get("cluster_exact_match"), dict) else {}
     comparison_updated_at = Path(comparison_path).stat().st_mtime if comparison_path and Path(comparison_path).exists() else None
-    model_metrics_path = Path("artifacts/metrics.json")
+    model_metrics_path = Path("models/main/metrics.json")
     model_metrics_updated_at = model_metrics_path.stat().st_mtime if model_metrics_path.exists() else None
     stale = bool(latest_run_updated_at and comparison_updated_at and comparison_updated_at < latest_run_updated_at)
     return {
@@ -2564,7 +2564,7 @@ def build_evaluation_metrics(latest_run_updated_at: float | None = None) -> dict
         "average_precision": safe_float(model_metrics.get("average_precision"), default=0.0),
         "cluster_exact_precision": safe_float(cluster_exact.get("precision"), default=0.0),
         "cluster_exact_recall": safe_float(cluster_exact.get("recall"), default=0.0),
-        "source": comparison_path or "artifacts/metrics.json",
+        "source": comparison_path or "models/main/metrics.json",
         "kind": "offline_reference_evaluation",
         "comparison_updated_at": comparison_updated_at,
         "model_metrics_updated_at": model_metrics_updated_at,

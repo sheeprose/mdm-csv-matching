@@ -21,8 +21,8 @@ def main() -> None:
             if a_id and b_id:
                 reference_pairs.add((a_id, b_id))
 
-    table_a = preprocess_table(pd.read_csv("structured_amazon_google/tableA.csv"))
-    table_b = preprocess_table(pd.read_csv("structured_amazon_google/tableB.csv"))
+    table_a = preprocess_table(pd.read_csv("datasets/structured_amazon_google/tableA.csv"))
+    table_b = preprocess_table(pd.read_csv("datasets/structured_amazon_google/tableB.csv"))
     candidate_pairs = build_candidate_pairs(table_a, table_b)
     candidate_set = {
         (str(row["table1.id"]), str(row["table2.id"]))

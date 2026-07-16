@@ -18,8 +18,8 @@ from mdm_matching.service import (
 
 
 REFERENCE_PATH = Path(r"C:\Users\86153\Desktop\a\structured_amazon_google\master.csv")
-TABLE_A_PATH = Path("structured_amazon_google/tableA.csv")
-TABLE_B_PATH = Path("structured_amazon_google/tableB.csv")
+TABLE_A_PATH = Path("datasets/structured_amazon_google/tableA.csv")
+TABLE_B_PATH = Path("datasets/structured_amazon_google/tableB.csv")
 
 
 def reference_pairs() -> set[tuple[str, str]]:

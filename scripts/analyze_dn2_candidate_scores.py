@@ -10,9 +10,9 @@ from mdm_matching.preprocess import preprocess_table
 from mdm_matching.service import build_candidate_pairs, load_model, score_candidates
 
 
-TABLE_A_PATH = Path("structured_dn2/tableA.csv")
-TABLE_B_PATH = Path("structured_dn2/tableB.csv")
-REFERENCE_PATH = Path("structured_dn2/master.csv")
+TABLE_A_PATH = Path("data/dn2/tableA.csv")
+TABLE_B_PATH = Path("data/dn2/tableB.csv")
+REFERENCE_PATH = Path("data/dn2/master.csv")
 
 
 def load_reference_pairs() -> set[tuple[str, str]]:

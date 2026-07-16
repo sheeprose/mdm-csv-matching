@@ -132,7 +132,7 @@ def fuse_scores(xgb_scores, mlp_scores, lexical_scores):
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--data-dir", type=Path, default=Path("structured_amazon_google"))
+    parser.add_argument("--data-dir", type=Path, default=Path("datasets/structured_amazon_google"))
     parser.add_argument("--output-dir", type=Path, default=Path("artifacts"))
     args = parser.parse_args()
     metrics = train(args.data_dir, args.output_dir)

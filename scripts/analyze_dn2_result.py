@@ -7,8 +7,8 @@ from collections import Counter, defaultdict
 from pathlib import Path
 
 
-DB_PATH = Path("artifacts/mdm.sqlite3")
-REFERENCE_PATH = Path("structured_dn2/master.csv")
+DB_PATH = Path("models/main/mdm.sqlite3")
+REFERENCE_PATH = Path("data/dn2/master.csv")
 
 
 def load_reference_pairs(path: Path) -> set[tuple[str, str]]:
